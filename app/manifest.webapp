@@ -1,0 +1,19 @@
+{
+  "version": "0.1.0",
+  "name": "openmrs-owa-referenceappui",
+  "description": "An improved reference application user interface",
+  "launch_path": "index.html",
+  "icons": {
+    "48": "/img/omrs-button.png"
+  },
+  "developer": {
+    "name": "justmesam",
+    "url": "https://github.com/justmesam/openmrs-owa-openmrs-owa-referenceappui"
+  },
+  "default_locale": "en",
+    "activities": {
+      "openmrs": {
+        "href": "*"
+      }
+    }
+}

@@ -1,0 +1,2 @@
+export const ASYNC_LOADING = 'ASYNC_LOADING'
+export const ASYNC_ERROR = 'ASYNC_ERROR'
