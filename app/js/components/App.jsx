@@ -7,14 +7,45 @@
  * graphic logo is a trademark of OpenMRS Inc.
  */
 import React from 'react';
-import Header from './presentational/common/header'
+import { connect } from "react-redux";
 
-export default class App extends React.Component {
+import Header from './presentational/common/Header/header.jsx';
+import * as AuthActions from '../redux/actions/authActions';
+
+class App extends React.Component {
+
+  componentDidMount(){
+    this.props.currentActiveSession();
+  }
+
   render() {
+    if (this.props.authentication.loading) {
+      return (
+        <div id="body-wrapper">
+          <div id="app" className=" loader-position">
+            <img src="img/loading.gif"/>
+          </div>
+        </div>
+      )
+    }
     return (
       <div>
-        <Header />
+        <Header
+          authentication={this.props.authentication}
+          authActions={this.props}
+         />
+
       </div>
     )
   }
 }
+
+ const mapStateToProps = (state) => {
+   const authentication = state.authentication;
+   return {
+     authentication
+   }
+ }
+export default connect(mapStateToProps,
+   { ...AuthActions })
+   (App)

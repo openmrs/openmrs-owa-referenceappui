@@ -143,6 +143,16 @@ plugins.push(new HtmlWebpackPlugin({
 }));
 
 plugins.push(new CopyWebpackPlugin([{
+  from: './app/img/',
+  to: 'img'
+},
+{
+  from: 'bower_components',
+  to: 'bower_components',
+	toType: 'dir'
+}]));
+
+plugins.push(new CopyWebpackPlugin([{
     from: './app/manifest.webapp'
 }]));
 
@@ -179,11 +189,15 @@ var webpackConfig = {
     loaders: [{
 	    test: /\.jsx?$/,
 	    loader: 'babel-loader',
-	    exclude: /node_modules/,
+	    exclude: /(node_modules|libs)/,
 	    query: {
-	        presets: [ 'es2015', 'react' ],
+	        presets: [ 'es2015', 'react', "stage-0" ],
 	        cacheDirectory : true
-	    }
+	    },
+			loaders: [
+				 'react-hot',
+				 'babel?presets[]=react,presets[]=es2015,presets[]=stage-0'
+			 ]
     },{
 	    test: /\.css$/,
 	    loader: 'style-loader!css-loader'

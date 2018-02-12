@@ -13,8 +13,9 @@ const applicationDistribution = location.href.split('/')[3];
 let apiBaseUrl = `/${applicationDistribution}/ws/rest`;
 
 export const apiHelper = axios.create({
+  baseURL : `${apiBaseUrl}`,
   headers: {
            "Accept": "application/json",
           "Content-Type":  'application/json',
-        }
+        },
 });

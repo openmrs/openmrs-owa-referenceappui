@@ -11,7 +11,7 @@ import {render} from 'react-dom';
 import {Router, Route, hashHistory} from 'react-router'
 import {Provider} from 'react-redux'
 
-import createStore from './redux/constants/redux-store'
+import createStore from './redux/constants/redux-store.js'
 import routes from './routes'
 
 let store = createStore();

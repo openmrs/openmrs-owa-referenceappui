@@ -7,16 +7,15 @@
  * graphic logo is a trademark of OpenMRS Inc.
  */
 
-import {createStore, applyMiddleware, combineReducers} from 'redux'
-import promiseMiddleware from 'redux-promise-middleware';
-import thunkMiddleware from 'redux-thunk';
-import * as reducers from '../reducers/reducers'
+import {createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import logger from 'redux-logger'
+import reducer from '../reducers/index'
 
 export default function () {
-  const reducer = combineReducers(reducers);
-  const store = createStore(reducer, {}, applyMiddleware(
-    thunkMiddleware,
-    promiseMiddleware()
+  const store = createStore(reducer, applyMiddleware(
+    logger,
+    thunk,
   ));
   return store;
 }

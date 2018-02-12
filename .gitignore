@@ -1,5 +1,5 @@
 node_modules
-bower_components
+libs
 dist
 config.json
 webpack.config.js

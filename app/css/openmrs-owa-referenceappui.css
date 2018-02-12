@@ -70,3 +70,147 @@ header .logo img {
     align-self: center;
 }
 
+.loader-position {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20%;
+}
+
+.dropdown-large {
+    position: static;
+}
+
+.dropdown-large:hover {
+    background-color: #00463f;
+}
+
+.dropdown-menu-large {
+    margin-left: 16px;
+    padding: 20px 0px;
+    z-index: 900;
+}
+
+.dropdown-menu-large>li>a:hover {
+    background-color: #007fff;
+}
+
+.dropdown-menu {
+    width: 50%;
+}
+
+.dropdown-menu > li > a {
+    color: #007fff;
+    padding: 0;
+}
+
+.dropdown:hover .profile-dropdown {
+    display: block;
+    margin-top: 0;
+ }
+
+.profile-dropdown {
+    background-color:#5B57A6;
+    z-index: 1000;
+ }
+
+.dropdown-menu {
+     padding: 0;
+ }
+
+.dropdown-toggle {
+     padding: 10px;
+ }
+
+ #current-user {
+     margin-top: 0;
+     padding-left: 20px;
+ }
+
+ #current-user:hover {
+     background-color: #007fff;
+     color: #ffffff;
+ }
+
+ .current-location {
+    background-color: #007fff;
+}
+
+#current-location{
+    color: #fff;
+}
+
+.location {
+    border-width: 1px;
+    border-bottom-width:1px;
+    border-bottom-color:rgba(148, 147, 147, 0.41);
+    border-bottom-style: solid;
+}
+
+.header-location {
+    border: 0.5px solid #1D7568;
+    padding: 7px;
+    border-radius: 5px;
+}
+
+.header-location:hover {
+    background-color: #0D685D;
+}
+
+#my-account {
+    font-size: 18px;
+    color: white;
+}
+
+.my-account:hover {
+    border-bottom: 1px solid white;
+}
+
+#location-dropdown {
+    padding: 0 1px;
+}
+
+#location-dropdown a {
+    margin: 0;
+}
+
+#location-dropdown a:hover {
+    color: #fff;
+}
+
+.navbar-font {
+    font-size: 1em;
+}
+
+.navbar-font:hover {
+    border-bottom: 1px solid white;
+}
+
+.navbar-glyphicon-font {
+    font-size: 17px;
+}
+
+.nav-header li {
+    color: #eeeeee;
+    font-size: 15px;
+    padding-right: 20px;
+    display: inline;
+    list-style: none;
+}
+
+header>ul, a {
+    color: #eeeeee;
+    padding-right: 2px;
+    margin-top: 15px;
+    font-size: 16px;
+}
+
+li>a:hover {
+    color: #eeeeee;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+li>a:focus {
+    color: #ffffff;
+}
