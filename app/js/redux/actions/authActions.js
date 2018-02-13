@@ -1,3 +1,5 @@
+import { hashHistory } from 'react-router';
+
 import * as actionTypes from '../constants/actionTypes.js';
 import { apiCall, apiCallError } from './asyncActions.js';
 import {apiHelper} from '../../helpers/apiHelper';
@@ -48,7 +50,7 @@ export const setOpenMRSLocation = (locationUuid) => {
     return apiHelper
     .post(`${uploadUrl}`, {"location" : locationUuid})
     .then(response => dispatch(setCurrentOpenMrsLocation(response)))
-    .catch(error => dispatch(apiCallError(error)))
+    .catch(error => dispatch(apiCallError(error)))         
   }
 
 }
@@ -67,7 +69,7 @@ export const currentLocation = () => {
 
 export const currentActiveSession = () => {
   return (dispatch) => {
-    dispatch(apiCall());
+    dispatch(apiCall());         
     return apiHelper
     .get('/v1/session')
     .then(response => {
@@ -89,3 +91,24 @@ export const createlogOutUrl = (locationResponse) => {
     });
   return (dispatch) => dispatch(logout(currentLogOutUrl))
 }
+
+export const loginUser = (payload) => {
+    const { username, password } = payload;
+  return (dispatch) => {
+    dispatch(apiCall())
+    const authentication = 'Basic ' + new Buffer(`${username}:${password}`).toString('base64');
+    return apiHelper.get('v1/session', apiHelper.headers={ authentication })
+    .then(user => {
+      loginUserSuccess(dispatch, user)
+    })
+    .catch(error => dispatch(apiCallError(error)))
+  }
+};
+
+export const loginUserSuccess = (dispatch, user) => {
+  dispatch({
+    type: actionTypes.LOGIN_USER_SUCCESS,
+    payload: user
+  });
+   user.data.authenticated ? hashHistory.push('/home') : toastr.error('Invalid username or password');
+};

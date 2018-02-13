@@ -4,4 +4,6 @@ export const INITIAL_STATE = {
   customLogoutURL: ' ',
   locationResponse: [],
   sessionResponse: [],
+  loading: false,
+  user: {}
 }

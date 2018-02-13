@@ -19,39 +19,43 @@ export default (state=initialState.INITIAL_STATE, action) => {
     case actionTypes.ASYNC_LOADING:
       return {...state,
         loading : true,
-      }
+      };
     case actionTypes.GET_CURRENT_SESSION:
       return {...state,
         loading : false,
         sessionResponse: action.payload.data,
         currentUser: action.payload.data.user.display,
-      }
+      };
     case actionTypes.GET_CURRENT_LOCATION:
       return {...state,
         loading : false,
         locationResponse: action.payload.data.results,
         currentLocation: action.payload.data.results[0].display,
-      }
+      };
     case actionTypes.SET_CURRENT_LOCATION:
       return {...state,
         loading : false,
         currentLocation: action.location
-      }
+      };
     case actionTypes.SET_OPENMRS_LOCATION:
       return {...state,
         loading : false,
         setLocationResponse: action.payload.data
-      }
+      };
     case actionTypes.GET_LOGOUT_URL:
       return {...state,
         loading : false,
         customLogoutURL: action.payload
-      }
+      };
     case actionTypes.ASYNC_ERROR:
       return {...state,
         loading : false,
         apiSyncError: action.error,
-      }
+      };
+    case actionTypes.LOGIN_USER_SUCCESS:
+      return { ...state,
+         user: action.payload
+      };
     default:
       return state
   }

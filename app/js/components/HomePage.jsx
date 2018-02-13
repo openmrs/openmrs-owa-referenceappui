@@ -7,19 +7,20 @@
  * graphic logo is a trademark of OpenMRS Inc.
  */
 import React from 'react';
-import { render } from 'react-dom';
-import { Router, Route, hashHistory } from 'react-router'
-import { Provider } from 'react-redux'
 
-import createStore from './redux/constants/redux-store.js'
-import routes from './routes'
+import Header from './presentational/common/Header/header.jsx';
+import * as AuthActions from '../redux/actions/authActions';
 
-let store = createStore();
 
-render((
-  <Provider store={store}>
-    <Router history={hashHistory}>
-      {routes(store)}
-    </Router>
-  </Provider>
-), document.getElementById('app'));
+class HomePage extends React.Component {
+
+  render() {
+    return (
+      <div className="container main-container">
+        <h1>Welcome to the Home Page</h1>
+      </div>
+    )
+  }
+}
+
+export default HomePage;
