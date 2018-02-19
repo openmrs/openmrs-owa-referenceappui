@@ -70,7 +70,8 @@
   },
   "jest": {
     "collectCoverageFrom": [
-      "*.js"
+      "app/**/*.{js,jsx}",
+      "!**/node_modules/**"      
     ]
   },
   "keywords": [
