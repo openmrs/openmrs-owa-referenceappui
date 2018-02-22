@@ -7,13 +7,13 @@
  * graphic logo is a trademark of OpenMRS Inc.
  */
 import React from 'react';
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { loginUser } from '../redux/actions/authActions';
-import LoginForm from './presentational/LoginForm'
+import { loginUser } from '../../redux/actions/authActions';
+import LoginForm from '../presentational/LoginForm';
 
-export class Login extends React.Component {
+class Login extends React.Component {
 
   constructor(props) {
     super(props);
@@ -33,20 +33,20 @@ export class Login extends React.Component {
     event.preventDefault();
     const { username, password, sessionLocation } = this.state;
 
-    this.props.loginUser({ username, password, sessionLocation })
+    this.props.loginUser({ username, password, sessionLocation });
 
   }
 
   render() {
     return (
       <LoginForm
-        onSubmit={this.handleSubmit} 
+        onSubmit={this.handleSubmit}
         onChange={this.handleChange}
         username={this.state.username}
         password={this.state.password}
         sessionLocation={this.state.sessionLocation}
       />
-    )
+    );
   }
 }
 
@@ -54,11 +54,12 @@ const mapStateToProps = (state) => {
   const authentication = state.authentication;
   return {
     authentication
-  }
-}
+  };
+};
 
 Login.PropTypes ={
   loginUser: PropTypes.func.isRequired
-}
+};
 
-export default connect(mapStateToProps, { loginUser })(Login);
+export default connect(mapStateToProps,
+  { loginUser })(Login);

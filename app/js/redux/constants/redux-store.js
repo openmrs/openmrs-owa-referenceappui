@@ -9,13 +9,16 @@
 
 import {createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-import logger from 'redux-logger'
-import reducer from '../reducers/index'
+import logger from 'redux-logger';
+import reducer from '../reducers/index';
 
 export default function () {
+  const middlewares = [];
+  middlewares.push(thunk);
+	if (process.env !== 'production') { // eslint-disable-line
+    middlewares.push(logger);
+  }
   const store = createStore(reducer, applyMiddleware(
-    logger,
-    thunk,
-  ));
+    ...middlewares));
   return store;
 }

@@ -8,9 +8,9 @@
  */
 import React, { Component } from 'react';
 import { Router, Route, hashHistory } from 'react-router';
-import App from './components/App'
 
-import HomePage from './components/HomePage';
+import App from './components/App';
+import LandingPage from './components/containers/landingPage.jsx';
 
 export default (store) => {
   // combine store and onEnter if you need to fire an action when going to a route. Example:
@@ -19,7 +19,7 @@ export default (store) => {
   return (
     <Router history={hashHistory}>
       <Route path="/" component={App} />
-      <Route path="/home" component={HomePage} />
+      <Route path="/home" component={LandingPage} />
     </Router>
   );
-}
+};

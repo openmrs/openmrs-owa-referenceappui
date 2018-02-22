@@ -1,9 +1,13 @@
-export const INITIAL_STATE = {
+export const AUTH_INITIAL_STATE = {
   currentUser : ' ',
   currentLocation: ' ',
   customLogoutURL: ' ',
   locationResponse: [],
   sessionResponse: [],
-  loading: false,
-  user: {}
-}
+};
+
+export const APP_INIITIAL_STATE = {
+  appList : [],
+  setClassicView: false,
+  notifications: [],
+};

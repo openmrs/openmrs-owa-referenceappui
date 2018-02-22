@@ -7,43 +7,27 @@
  * graphic logo is a trademark of OpenMRS Inc.
  */
 import React from 'react';
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
 
-import Header from './presentational/common/Header/header.jsx';
 import * as AuthActions from '../redux/actions/authActions';
-import Login from './Login';
+import Login from './containers/Login.jsx';
 import openmrsLogo from './../../img/openmrs-with-title-small.png';
 
-class App extends React.Component {
-
-  componentDidMount() {
-    this.props.currentActiveSession();
-  }
-
+export default class App extends React.Component {
   render() {
     return (
       <div className="container main-container">
-      
-      <header>
+
+        <header>
           <nav className="navbar navbar-light bg-faded nav-header">
-          <img src={(openmrsLogo)} className="omrsButton" alt="Add On manager homepage" />
+            <img src={(openmrsLogo)} className="omrsButton" alt="Add On manager homepage" />
           </nav>
         </header>
-        
-          <div className="col-md-6 offset-md-3">
-            <Login />
-          </div>
-      </div>
-    )
-  }
-}
 
-const mapStateToProps = (state) => {
-  const authentication = state.authentication;
-  return {
-    authentication
+        <div className="col-md-6 offset-md-3">
+          <Login />
+        </div>
+      </div>
+    );
   }
 }
-export default connect(mapStateToProps,
-  { ...AuthActions })
-  (App)

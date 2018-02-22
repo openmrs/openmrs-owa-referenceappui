@@ -7,15 +7,15 @@
  * Copyright (C) OpenMRS Inc. OpenMRS is a registered trademark and the OpenMRS
  * graphic logo is a trademark of OpenMRS Inc.
  */
-import axios from "axios";
+import axios from 'axios';
 
-const applicationDistribution = location.href.split('/')[3];
+export const applicationDistribution = location.href.split('/')[3];
 let apiBaseUrl = `/${applicationDistribution}/ws/rest`;
 
 export const apiHelper = axios.create({
   baseURL : `${apiBaseUrl}`,
   headers: {
-           "Accept": "application/json",
-          "Content-Type":  'application/json',
-        },
+    'Accept': 'application/json',
+    'Content-Type':  'application/json',
+  },
 });

@@ -14,51 +14,31 @@
 import * as initialState from '../constants/initialState';
 import * as actionTypes from '../constants/actionTypes';
 
-export default (state=initialState.AUTH_INITIAL_STATE, action) => {
+export default (state=initialState.APP_INIITIAL_STATE, action) => {
   switch (action.type) {
-  case actionTypes.ASYNC_LOADING:
+  case actionTypes.FETCHING_APPS:
     return {...state,
       loading : true,
     };
-  case actionTypes.GET_CURRENT_SESSION:
+  case actionTypes.FETCH_APPS_FULFILLED:
     return {...state,
       loading : false,
-      sessionResponse: action.payload.data,
-      currentUser: action.payload.data.user.display,
+      appList: action.payload.data.results,
     };
-  case actionTypes.GET_CURRENT_LOCATION:
+  case actionTypes.SET_VIEW:
     return {...state,
       loading : false,
-      currentLocation: action.payload.data.sessionLocation.display,
+      setClassicView: !state.setClassicView,
     };
-  case actionTypes.FETCH_ALL_LOCATIONS:
+  case actionTypes.GET_NOTIFICATIONS:
     return {...state,
       loading : false,
-      locationResponse: action.payload.data.results,
-    };
-  case actionTypes.SET_CURRENT_LOCATION:
-    return {...state,
-      loading : false,
-      currentLocation: action.location
-    };
-  case actionTypes.SET_OPENMRS_LOCATION:
-    return {...state,
-      loading : false,
-      setLocationResponse: action.payload.data
-    };
-  case actionTypes.GET_LOGOUT_URL:
-    return {...state,
-      loading : false,
-      customLogoutURL: action.payload
+      notifications: action.payload.data.results,
     };
   case actionTypes.ASYNC_ERROR:
     return {...state,
       loading : false,
       apiSyncError: action.error,
-    };
-  case actionTypes.LOGIN_USER_SUCCESS:
-    return { ...state,
-      user: action.payload
     };
   default:
     return state;

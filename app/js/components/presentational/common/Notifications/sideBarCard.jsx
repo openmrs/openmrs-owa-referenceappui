@@ -8,19 +8,18 @@
  */
 import React from 'react';
 
-import Header from './presentational/common/Header/header.jsx';
-import * as AuthActions from '../redux/actions/authActions';
+import  { applicationDistribution } from '../../../../helpers/apiHelper';
+import { getAppName } from '../../../../utility/stringModifiers';
 
 
-class HomePage extends React.Component {
-
-  render() {
-    return (
-      <div className="container main-container">
-        <h1>Welcome to the Home Page</h1>
-      </div>
-    )
-  }
-}
-
-export default HomePage;
+export default (props) => (
+  <div
+    className="sidebar-card"
+    onClick={
+      () =>
+        window.location.href =`/${applicationDistribution}${props.notifications.action.url}`}>
+    <span>{getAppName(props.notifications.label)}</span>
+    <p>
+    </p>
+  </div>
+);
