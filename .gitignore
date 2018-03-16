@@ -1,0 +1,7 @@
+node_modules
+libs
+dist
+config.json
+webpack.config.js
+package-lock.json
+coverage
